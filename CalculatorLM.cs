@@ -6,36 +6,35 @@ namespace ConsoleApp5
     {
         delegate int Operation(int x, int y);
 
+
+
         static void Main(string[] args)
         {
+
             Console.Write("Укажите первое число: ");
-                int x = Convert.ToInt32(Console.ReadLine());
+            int x = Convert.ToInt32(Console.ReadLine());
+
+
 
             Console.Write("Укажите второе число: ");
-                int y = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Выберите действие: ");
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(" 1 - сумма");
-            Console.WriteLine(" 2 - вычитание");
-            Console.WriteLine(" 3 - умножение");
-            Console.WriteLine(" 4 - деление");
-            Console.ResetColor();
+            int y = Convert.ToInt32(Console.ReadLine());
 
 
-            switch (Convert.ToInt32(Console.ReadLine()))
+            Switch();
+
+            switch (Convert.ToChar(Console.ReadLine()))
             {
-                case 1:
+                case '+' :
                     Operation add = (x, y) => x + y;
                     Console.WriteLine("Результат: " + add(x, y)); break;
-                case 2:
+                case '-':
 
                     Operation sub = (x, y) => x - y;
                     Console.WriteLine("Результат: " + sub(x, y)); break;
-                case 3:
+                case '*':
                     Operation mul = (x, y) => x * y;
                     Console.WriteLine("Результат: " + mul(x, y)); break;
-                case 4:
+                case '/':
                     if (y > 0)
                     {
                         Operation div = (x, y) => x / y;
@@ -48,8 +47,17 @@ namespace ConsoleApp5
                     break;
                     default:
                         Console.WriteLine("Введите другое число!"); break;
-                }
-            
+            }
+
+
+        }
+
+        static void Switch()
+        {
+            Console.WriteLine("Выберите действие: ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("+, -, *, /");
+            Console.ResetColor();
             
         }
     }
